@@ -1,5 +1,5 @@
---- deluge/ui/web/js/deluge-all.js	2014-12-29 15:08:14.880000000 +0800
-+++ deluge/ui/web/js/deluge-all.js-	2014-12-29 15:08:01.790000000 +0800
+--- a/deluge/ui/web/js/deluge-all.js
++++ b/deluge/ui/web/js/deluge-all.js
 @@ -733,7 +733,7 @@
   * this exception statement from your version. If you delete this exception
   * statement from all source files in the program, then also delete it here.
