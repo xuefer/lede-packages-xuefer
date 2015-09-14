@@ -21,8 +21,6 @@ PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python
 PKG_FIXUP:=autoreconf
 
-BOOSTPOSTFIX=mt
-
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
@@ -48,12 +46,12 @@ CONFIGURE_ARGS+= \
 	--with-boost=$(STAGING_DIR)/usr/include \
 	--with-boost-libdir=$(STAGING_DIR)/usr/lib \
 	--with-zlib=detect \
-	--with-boost-system=boost_system-$(BOOSTPOSTFIX) \
-	--with-boost-filesystem=boost_filesystem-$(BOOSTPOSTFIX) \
-	--with-boost-thread=boost_thread-$(BOOSTPOSTFIX) \
-	--with-boost-regex=boost_regex-$(BOOSTPOSTFIX) \
-	--with-boost-python=boost_python-$(BOOSTPOSTFIX) \
-	--with-boost-program_options=boost_program_options-$(BOOSTPOSTFIX)
+	--with-boost-system=boost_system \
+	--with-boost-filesystem=boost_filesystem \
+	--with-boost-thread=boost_thread \
+	--with-boost-regex=boost_regex \
+	--with-boost-python=boost_python \
+	--with-boost-program_options=boost_program_options
 
 define Build/Compile
 	$(call Build/Compile/Default)
