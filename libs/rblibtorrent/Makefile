@@ -10,12 +10,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=rblibtorrent
-PKG_VERSION:=0.16.19
+PKG_VERSION:=1.0.6
 PKG_RELEASE:=1
 
 PKG_SOURCE:=libtorrent-rasterbar-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=@SF/libtorrent
-PKG_MD5SUM:=38ed42c14dbbc4fb299828b2cb7ec1fd
+PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent/releases/download/libtorrent-$(subst .,_,$(PKG_VERSION))/
+PKG_MD5SUM:=e88d7f56fe9384e835b8389cd59e540e
 PKG_BUILD_DIR:=$(BUILD_DIR)/libtorrent-rasterbar-$(PKG_VERSION)
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python
