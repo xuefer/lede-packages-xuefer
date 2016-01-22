@@ -10,19 +10,25 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=rblibtorrent
-PKG_VERSION:=1.0.6
+PKG_VERSION:=1.0.8
 PKG_RELEASE:=1
 
-PKG_SOURCE:=libtorrent-rasterbar-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent/releases/download/libtorrent-$(subst .,_,$(PKG_VERSION))/
-PKG_MD5SUM:=e88d7f56fe9384e835b8389cd59e540e
-PKG_BUILD_DIR:=$(BUILD_DIR)/libtorrent-rasterbar-$(PKG_VERSION)
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://github.com/arvidn/libtorrent.git
+PKG_SOURCE_VERSION:=libtorrent-$(subst .,_,$(PKG_VERSION))
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python
-PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
+
+define Build/Configure
+	(cd $(PKG_BUILD_DIR); ACLOCAL_INCLUDE="-I m4 $$$$ACLOCAL_INCLUDE" ./autotool.sh );
+	$(call Build/Configure/Default)
+endef
 
 define Package/rblibtorrent
   SECTION:=libs
@@ -37,6 +43,11 @@ Rasterbar libtorrent is a C++ library that aims to be a good alternative to
 all the other bittorrent implementations around. It is a library and not a
 full featured client, although it comes with a working example client.
 endef
+
+CONFIGURE_VARS+= \
+	PYTHON_CFLAGS="-I $(PYTHON_INC_DIR)" \
+	PYTHON_LDFLAGS="-L $(PYTHON_LIB_DIR) -l$(PYTHON)" \
+	PYTHON_LIBS="-l$(PYTHON)"
 
 CONFIGURE_ARGS+= \
 	--enable-shared \
