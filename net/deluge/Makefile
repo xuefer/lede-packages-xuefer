@@ -54,8 +54,8 @@ endef
 
 define Build/Compile
 	$(call Build/Compile/PyMod,,\
-		install --prefix="$(PKG_INSTALL_DIR)/usr" \
-		--old-and-unmanageable \
+		install --root="$(PKG_INSTALL_DIR)" --prefix="/usr" \
+		--single-version-externally-managed \
 	)
 
 	$(SED) 's,#!.*/host/bin/python.*,#!/usr/bin/$(PYTHON),' $(PKG_INSTALL_DIR)/usr/bin/*
