@@ -8,12 +8,18 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
-PKG_VERSION:=1.3.12
+PKG_VERSION:=1.3.12-2015-12-12
+PKG_REV:=77f8449c0cff592e5780e17867d9ea75efe788e7
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://download.deluge-torrent.org/source/
-PKG_MD5SUM:=fdc3b496b676c3ef0dcf9cfdc46facce
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://github.com/deluge-torrent/deluge.git
+PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+
+PKG_BUILD_PARALLEL:=1
+PKG_BUILD_DEPENDS:=libtool python
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
