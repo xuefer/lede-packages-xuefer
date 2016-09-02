@@ -1,5 +1,0 @@
---- a/deluge/ui/web/js/deluge-all.js
-+++ b/deluge/ui/web/js/deluge-all.js
-@@ -95 +95 @@
--scope:this}}});b=this.add({xtype:"fieldset",border:!1,title:_("Server"),style:"margin-top: 0px; padding-top: 0px; margin-bottom: 0px; padding-bottom: 0px",autoHeight:!0,labelWidth:110,defaultType:"spinnerfield",defaults:{width:80}});a.bind("session_timeout",b.add({name:"session_timeout",fieldLabel:_("Session Timeout"),decimalPrecision:0,minValue:-1,maxValue:99999}));a.bind("port",b.add({name:"port",fieldLabel:_("Port"),decimalPrecision:0,minValue:-1,maxValue:99999}));this.httpsField=a.bind("https",
-+scope:this}}});b=this.add({xtype:"fieldset",border:!1,title:_("Server"),style:"margin-top: 0px; padding-top: 0px; margin-bottom: 0px; padding-bottom: 0px",autoHeight:!0,labelWidth:110,defaultType:"spinnerfield",defaults:{width:80}});a.bind("session_timeout",b.add({name:"session_timeout",fieldLabel:_("Session Timeout"),decimalPrecision:0,minValue:-1,maxValue:31536000}));a.bind("port",b.add({name:"port",fieldLabel:_("Port"),decimalPrecision:0,minValue:-1,maxValue:99999}));this.httpsField=a.bind("https",

@@ -1,0 +1,122 @@
+diff --git a/deluge/ui/web/js/deluge-all/details/OptionsTab.js b/deluge/ui/web/js/deluge-all/details/OptionsTab.js
+index 3425698..5ddd9f5 100644
+--- a/deluge/ui/web/js/deluge-all/details/OptionsTab.js
++++ b/deluge/ui/web/js/deluge-all/details/OptionsTab.js
+@@ -106,7 +106,7 @@ Deluge.details.OptionsTab = Ext.extend(Ext.form.FormPanel, {
+ 				xtype: 'number',
+ 				decimalPrecision: 1,
+ 				minValue: -1,
+-				maxValue: 99999
++				maxValue: 9999999
+ 			}
+ 		});
+ 		this.fieldsets.bandwidth.add({
+@@ -133,7 +133,7 @@ Deluge.details.OptionsTab = Ext.extend(Ext.form.FormPanel, {
+ 				xtype: 'number',
+ 				decimalPrecision: 1,
+ 				minValue: -1,
+-				maxValue: 99999
++				maxValue: 9999999
+ 			}
+ 		});
+ 		this.fieldsets.bandwidth.add({
+diff --git a/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js b/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
+index 5b5c1b0..536827d 100644
+--- a/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
++++ b/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
+@@ -58,7 +58,7 @@ Deluge.preferences.Bandwidth = Ext.extend(Ext.form.FormPanel, {
+ 			defaultType: 'spinnerfield',
+ 			defaults: {
+ 				minValue: -1,
+-				maxValue: 99999
++				maxValue: 999999
+ 			},
+ 			style: 'margin-bottom: 0px; padding-bottom: 0px;',
+ 			autoHeight: true
+diff --git a/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js b/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
+index 621c28a..2a20a41 100644
+--- a/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
++++ b/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
+@@ -59,7 +59,7 @@ Deluge.preferences.Daemon = Ext.extend(Ext.form.FormPanel, {
+ 			value: 58846,
+ 			decimalPrecision: 0,
+ 			minValue: -1,
+-			maxValue: 99999
++			maxValue: 65535
+ 		}));
+ 		
+ 		fieldset = this.add({
+diff --git a/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js b/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
+index bc8e878..6219f3f 100644
+--- a/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
++++ b/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
+@@ -140,14 +140,14 @@ Deluge.preferences.Interface = Ext.extend(Ext.form.FormPanel, {
+ 			fieldLabel: _('Session Timeout'),
+ 			decimalPrecision: 0,
+ 			minValue: -1,
+-			maxValue: 99999
++			maxValue: Number.MAX_SAFE_INTEGER||Number.MAX_VALUE
+ 		}));
+ 		om.bind('port', fieldset.add({
+ 			name: 'port',
+ 			fieldLabel: _('Port'),
+ 			decimalPrecision: 0,
+ 			minValue: -1,
+-			maxValue: 99999
++			maxValue: 65535
+ 		}));
+ 		this.httpsField = om.bind('https', fieldset.add({
+ 			xtype: 'checkbox',
+diff --git a/deluge/ui/web/js/deluge-all/preferences/NetworkPage.js b/deluge/ui/web/js/deluge-all/preferences/NetworkPage.js
+index 6d7d839..2bc0b6e 100644
+--- a/deluge/ui/web/js/deluge-all/preferences/NetworkPage.js
++++ b/deluge/ui/web/js/deluge-all/preferences/NetworkPage.js
+@@ -84,7 +84,7 @@ Deluge.preferences.Network = Ext.extend(Ext.form.FormPanel, {
+ 					xtype: 'number',
+ 					decimalPrecision: 0,
+ 					minValue: -1,
+-					maxValue: 99999
++					maxValue: 65535
+ 				}
+ 			}, {
+ 				fieldLabel: 'To',
+@@ -92,7 +92,7 @@ Deluge.preferences.Network = Ext.extend(Ext.form.FormPanel, {
+ 					xtype: 'number',
+ 					decimalPrecision: 0,
+ 					minValue: -1,
+-					maxValue: 99999
++					maxValue: 65535
+ 				}
+ 			}]
+ 		});
+@@ -137,7 +137,7 @@ Deluge.preferences.Network = Ext.extend(Ext.form.FormPanel, {
+ 					xtype: 'number',
+ 					decimalPrecision: 0,
+ 					minValue: -1,
+-					maxValue: 99999
++					maxValue: 65535
+ 				}
+ 			}, {
+ 				fieldLabel: 'To',
+@@ -145,7 +145,7 @@ Deluge.preferences.Network = Ext.extend(Ext.form.FormPanel, {
+ 					xtype: 'number',
+ 					decimalPrecision: 0,
+ 					minValue: -1,
+-					maxValue: 99999
++					maxValue: 65535
+ 				}
+ 			}]
+ 		});
+diff --git a/deluge/ui/web/js/deluge-all/preferences/ProxyField.js b/deluge/ui/web/js/deluge-all/preferences/ProxyField.js
+index fc00813..fe2e015 100644
+--- a/deluge/ui/web/js/deluge-all/preferences/ProxyField.js
++++ b/deluge/ui/web/js/deluge-all/preferences/ProxyField.js
+@@ -83,7 +83,7 @@ Deluge.preferences.ProxyField = Ext.extend(Ext.form.FieldSet, {
+ 			width: 80,
+ 			decimalPrecision: 0,
+ 			minValue: -1,
+-			maxValue: 99999
++			maxValue: 65535
+ 		});
+ 		this.port.on('change', this.onFieldChange, this);
+ 
