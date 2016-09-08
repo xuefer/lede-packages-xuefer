@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
-PKG_VERSION:=1.3.13
-PKG_REV:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_VERSION:=2.0.0.dev0
+PKG_REV:=develop
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -19,7 +19,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 
 PKG_BUILD_PARALLEL:=1
-PKG_BUILD_DEPENDS:=libtool python
+PKG_BUILD_DEPENDS:=libtool python python-rjsmin/host
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)

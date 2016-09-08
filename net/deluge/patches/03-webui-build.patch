@@ -1,0 +1,24 @@
+commit 1706b4c3dce387a1c221491af31a98053ac11365
+Author: Xuefer <xuefer@gmail.com>
+Date:   Mon Sep 5 12:55:16 2016 +0800
+
+    fix webui build
+    
+    Signed-off-by: Xuefer <xuefer@gmail.com>
+
+diff --git a/setup.py b/setup.py
+index e68d249..b0a0e4c 100755
+--- a/setup.py
++++ b/setup.py
+@@ -86,10 +86,7 @@ def finalize_options(self):
+         self.set_undefined_options('build', ('build_lib', 'build_lib'))
+ 
+     def run(self):
+-        if self.develop:
+-            js_basedir = os.path.join(os.path.dirname(__file__), 'deluge', 'ui', 'web', 'js')
+-        else:
+-            js_basedir = os.path.join(self.build_lib, 'deluge', 'ui', 'web', 'js')
++        js_basedir = os.path.join(os.path.dirname(__file__), 'deluge', 'ui', 'web', 'js')
+ 
+         js_source_dirs = [os.path.join(js_basedir, 'deluge-all'),
+                           os.path.join(js_basedir, 'extjs', 'ext-extensions')]
