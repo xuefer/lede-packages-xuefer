@@ -19,7 +19,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 
 PKG_BUILD_PARALLEL:=1
-PKG_BUILD_DEPENDS:=libtool python python-rjsmin/host
+PKG_BUILD_DEPENDS:=libtool python python-rjsmin python-rjsmin/host
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -35,7 +35,7 @@ endef
 define Package/deluge
 $(call Package/deluge/Default)
   TITLE+= (console UI & daemon)
-  DEPENDS+=+python +rblibtorrent +python2-chardet +pyxdg +twisted-core +twisted-web +pyopenssl +python-setuptools
+  DEPENDS+=+python +rblibtorrent +python2-chardet +pyxdg +twisted +pyopenssl +python-setuptools
 endef
 
 define Package/deluge-ui-gtk
@@ -64,7 +64,7 @@ define Build/Compile
 		--single-version-externally-managed \
 	)
 
-	$(SED) 's,#!.*/host/bin/python.*,#!/usr/bin/$(PYTHON),' $(PKG_INSTALL_DIR)/usr/bin/*
+	$(SED) 's,#!.*/hostpkg/bin/python.*,#!/usr/bin/$(PYTHON),' $(PKG_INSTALL_DIR)/usr/bin/*
 endef
 
 define PyPackage/deluge/filespec
