@@ -1,0 +1,63 @@
+From 1aefff994670253b2897d311abe3ca80ed66df5a Mon Sep 17 00:00:00 2001
+From: Xuefer <xuefer@gmail.com>
+Date: Fri, 22 Sep 2017 02:18:44 +0800
+Subject: [PATCH 2/3] fix lang variables
+
+Signed-off-by: Xuefer <xuefer@gmail.com>
+---
+ m4/ax_boost_system.m4 | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/m4/ax_boost_system.m4 b/m4/ax_boost_system.m4
+index 43570a5..8523c9e 100644
+--- a/m4/ax_boost_system.m4
++++ b/m4/ax_boost_system.m4
+@@ -54,7 +54,7 @@ AC_DEFUN([AX_BOOST_SYSTEM],
+ 	)
+ 
+ 	if test "x$want_boost" = "xyes"; then
+-        AC_REQUIRE([AC_PROG_CC])
++        AC_REQUIRE([AC_PROG_CXX])
+         AC_REQUIRE([AC_CANONICAL_BUILD])
+ 		CPPFLAGS_SAVED="$CPPFLAGS"
+ 		CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
+@@ -63,10 +63,11 @@ AC_DEFUN([AX_BOOST_SYSTEM],
+ 		LDFLAGS_SAVED="$LDFLAGS"
+ 		LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
+ 		export LDFLAGS
++		AC_LANG_PUSH([C++])
+ 
+         AC_CACHE_CHECK(whether the Boost::System library is available,
+ 					   ax_cv_boost_system,
+-        [AC_LANG_PUSH([C++])
++        [
+ 			 CXXFLAGS_SAVE=$CXXFLAGS
+ 			 CXXFLAGS=
+ 
+@@ -74,7 +75,6 @@ AC_DEFUN([AX_BOOST_SYSTEM],
+ 				    [[boost::system::error_category *a = 0;]])],
+                    ax_cv_boost_system=yes, ax_cv_boost_system=no)
+ 			 CXXFLAGS=$CXXFLAGS_SAVE
+-             AC_LANG_POP([C++])
+ 		])
+ 		if test "x$ax_cv_boost_system" = "xyes"; then
+ 			AC_SUBST(BOOST_CPPFLAGS)
+@@ -82,7 +82,6 @@ AC_DEFUN([AX_BOOST_SYSTEM],
+ 			AC_DEFINE(HAVE_BOOST_SYSTEM,,[define if the Boost::System library is available])
+             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
+ 
+-			LDFLAGS_SAVE=$LDFLAGS
+             if test "x$ax_boost_user_system_lib" = "x"; then
+                 for libextension in `ls -r $BOOSTLIBDIR/libboost_system* 2>/dev/null | sed 's,.*/lib,,' | sed 's,\..*,,'` ; do
+                      ax_lib=${libextension}
+@@ -115,6 +114,7 @@ AC_DEFUN([AX_BOOST_SYSTEM],
+ 			fi
+ 		fi
+ 
++		AC_LANG_POP([C++])
+ 		CPPFLAGS="$CPPFLAGS_SAVED"
+ 	LDFLAGS="$LDFLAGS_SAVED"
+ 	fi
+-- 
+2.10.2
+
