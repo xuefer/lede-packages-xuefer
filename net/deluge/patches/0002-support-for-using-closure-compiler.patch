@@ -1,0 +1,40 @@
+From 6f056016f6f858b897a9de54abdc4a989c7eebda Mon Sep 17 00:00:00 2001
+From: Xuefer <xuefer@gmail.com>
+Date: Fri, 22 Sep 2017 16:08:33 +0800
+Subject: [PATCH 2/2] support for using closure-compiler
+
+Signed-off-by: Xuefer <xuefer@gmail.com>
+---
+ minify_web_js.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/minify_web_js.py b/minify_web_js.py
+index d9a1643..e7dc411 100755
+--- a/minify_web_js.py
++++ b/minify_web_js.py
+@@ -22,6 +22,7 @@
+ import os
+ import subprocess
+ import sys
++from distutils import spawn
+ 
+ 
+ def module_exists(module_name):
+@@ -42,6 +43,14 @@ def minify_closure(file_in, file_out):
+             return True
+         except subprocess.CalledProcessError:
+             return False
++elif spawn.find_executable('closure-compiler'):
++    def minify_closure(file_in, file_out):
++        try:
++            subprocess.check_call(['closure-compiler',
++                                   '--js', file_in, '--js_output_file', file_out])
++            return True
++        except subprocess.CalledProcessError:
++            return False
+ elif module_exists('slimit'):
+     from slimit import minify
+ else:
+-- 
+2.10.2
+
