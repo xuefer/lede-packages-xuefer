@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=rblibtorrent
-PKG_VERSION:=1.0.11
+PKG_VERSION:=1.1.4
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -35,7 +35,7 @@ define Package/rblibtorrent
   CATEGORY:=Libraries
   TITLE:=Rasterbar BitTorrent library
   URL:=http://www.rasterbar.com/products/libtorrent/
-  DEPENDS:=$(CXX_DEPENDS) +boost-python +boost-filesystem +boost-regex +boost-thread +boost-program_options +boost-system +libopenssl
+  DEPENDS:=$(CXX_DEPENDS) +boost-python +boost-filesystem +boost-regex +boost-thread +boost-program_options +boost-system +boost-chrono +boost-random +libopenssl
 endef
 
 define Package/rblibtorrent/description

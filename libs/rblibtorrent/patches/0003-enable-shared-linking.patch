@@ -1,7 +1,7 @@
-From 27d1b5d3804d484ce0338ffd531f336cac9eb751 Mon Sep 17 00:00:00 2001
+From 70f5b86ed9e13af463771d763f91d7b13750f56e Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Fri, 22 Sep 2017 02:14:25 +0800
-Subject: [PATCH 3/3] enable shared linking
+Subject: [PATCH 3/4] enable shared linking
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
@@ -9,10 +9,10 @@ Signed-off-by: Xuefer <xuefer@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/bindings/python/Makefile.am b/bindings/python/Makefile.am
-index c909ac5..f1b677c 100644
+index da853e1..e36e896 100644
 --- a/bindings/python/Makefile.am
 +++ b/bindings/python/Makefile.am
-@@ -33,7 +33,7 @@ EXTRA_DIST = \
+@@ -34,7 +34,7 @@ EXTRA_DIST = \
  if ENABLE_PYTHON_BINDING
  
  all-local:
