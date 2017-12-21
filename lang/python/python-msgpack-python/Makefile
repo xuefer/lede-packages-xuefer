@@ -6,6 +6,7 @@
 #
 
 include $(TOPDIR)/rules.mk
+include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=msgpack-python
 PKG_VERSION:=0.4.8
@@ -30,7 +31,7 @@ define Package/python-msgpack-python
 	SUBMENU:=Python
 	TITLE:=python-msgpack-python
 	URL:=https://pypi.python.org/pypi/msgpack-python
-	DEPENDS:=+python-light
+	DEPENDS:=+python-light $(CXX_DEPENDS)
 endef
 
 define Package/python-msgpack-python/description
