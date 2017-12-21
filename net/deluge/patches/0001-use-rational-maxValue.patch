@@ -1,7 +1,7 @@
 From d1203a85f4fbb773b619b8616dc5e521c0202209 Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Mon, 5 Sep 2016 11:38:15 +0800
-Subject: [PATCH 1/2] use rational maxValue
+Subject: [PATCH 1/3] use rational maxValue
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
@@ -12,7 +12,7 @@ Signed-off-by: Xuefer <xuefer@gmail.com>
  4 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/deluge/ui/web/js/deluge-all/details/OptionsTab.js b/deluge/ui/web/js/deluge-all/details/OptionsTab.js
-index 51cde92..239a47d 100644
+index 51cde9272..239a47df5 100644
 --- a/deluge/ui/web/js/deluge-all/details/OptionsTab.js
 +++ b/deluge/ui/web/js/deluge-all/details/OptionsTab.js
 @@ -84,7 +84,7 @@ Deluge.details.OptionsTab = Ext.extend(Ext.form.FormPanel, {
@@ -34,7 +34,7 @@ index 51cde92..239a47d 100644
          });
          this.fieldsets.bandwidth.add({
 diff --git a/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js b/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
-index 3ebe3d6..d5e611b 100644
+index 3ebe3d629..d5e611b3b 100644
 --- a/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
 +++ b/deluge/ui/web/js/deluge-all/preferences/BandwidthPage.js
 @@ -37,7 +37,7 @@ Deluge.preferences.Bandwidth = Ext.extend(Ext.form.FormPanel, {
@@ -47,7 +47,7 @@ index 3ebe3d6..d5e611b 100644
              style: 'margin-bottom: 0px; padding-bottom: 0px;',
              autoHeight: true
 diff --git a/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js b/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
-index 219e324..adaf5b1 100644
+index 219e324f6..adaf5b1bb 100644
 --- a/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
 +++ b/deluge/ui/web/js/deluge-all/preferences/DaemonPage.js
 @@ -39,7 +39,7 @@ Deluge.preferences.Daemon = Ext.extend(Ext.form.FormPanel, {
@@ -60,7 +60,7 @@ index 219e324..adaf5b1 100644
  
          fieldset = this.add({
 diff --git a/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js b/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
-index 0423ce3..0bd12c5 100644
+index 0423ce3af..0bd12c585 100644
 --- a/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
 +++ b/deluge/ui/web/js/deluge-all/preferences/InterfacePage.js
 @@ -127,7 +127,7 @@ Deluge.preferences.Interface = Ext.extend(Ext.form.FormPanel, {
@@ -73,5 +73,5 @@ index 0423ce3..0bd12c5 100644
          om.bind('port', fieldset.add({
              name: 'port',
 -- 
-2.10.2
+2.13.6
 
