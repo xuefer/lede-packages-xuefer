@@ -1,0 +1,43 @@
+From cd230f1fcfa1557ff2aeb65a554dd6cfe81aa317 Mon Sep 17 00:00:00 2001
+From: Xuefer <xuefer@gmail.com>
+Date: Tue, 14 Nov 2017 02:01:33 +0800
+Subject: [PATCH 3/3] fix autoadd
+
+Signed-off-by: Xuefer <xuefer@gmail.com>
+---
+ deluge/plugins/AutoAdd/deluge/plugins/autoadd/core.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/deluge/plugins/AutoAdd/deluge/plugins/autoadd/core.py b/deluge/plugins/AutoAdd/deluge/plugins/autoadd/core.py
+index fba1038db..050bec9ee 100644
+--- a/deluge/plugins/AutoAdd/deluge/plugins/autoadd/core.py
++++ b/deluge/plugins/AutoAdd/deluge/plugins/autoadd/core.py
+@@ -18,6 +18,7 @@
+ import base64
+ import logging
+ import os
++import sys
+ import shutil
+ 
+ from twisted.internet import reactor
+@@ -237,6 +238,7 @@ def update_watchdir(self, watchdir_id):
+             try:
+                 filepath = os.path.join(watchdir['abspath'], filename)
+             except UnicodeDecodeError as ex:
++                log.error(sys.getfilesystemencoding())
+                 log.error('Unable to auto add torrent due to improper filename encoding: %s', ex)
+                 continue
+             if os.path.isdir(filepath):
+@@ -249,7 +251,8 @@ def update_watchdir(self, watchdir_id):
+             try:
+                 filepath = os.path.join(watchdir['abspath'], filename)
+             except UnicodeDecodeError as ex:
+-                log.error('Unable to auto add torrent due to improper filename encoding: %s', ex)
++                log.error(sys.getfilesystemencoding())
++                log.error('2 Unable to auto add torrent due to improper filename encoding: %s', ex)
+                 continue
+             if os.path.isdir(filepath):
+                 # Skip directories
+-- 
+2.13.6
+
