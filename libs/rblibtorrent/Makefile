@@ -21,7 +21,7 @@ PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python
 
 include $(INCLUDE_DIR)/package.mk
-$(call include_mk, python-package.mk)
+include ../../../packages/lang/python/python-package.mk
 
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); ACLOCAL_INCLUDE="-I m4 $$$$ACLOCAL_INCLUDE" ./autotool.sh );
