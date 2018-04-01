@@ -10,14 +10,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=rblibtorrent
-PKG_VERSION:=1.1.4
+PKG_VERSION:=1.1.6
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/arvidn/libtorrent.git
+PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent.git
 PKG_SOURCE_VERSION:=libtorrent-$(subst .,_,$(PKG_VERSION))
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python
@@ -43,11 +41,6 @@ Rasterbar libtorrent is a C++ library that aims to be a good alternative to
 all the other bittorrent implementations around. It is a library and not a
 full featured client, although it comes with a working example client.
 endef
-
-CONFIGURE_VARS+= \
-	PYTHON_CFLAGS="-I $(PYTHON_INC_DIR)" \
-	PYTHON_LDFLAGS="-L $(PYTHON_LIB_DIR) -l$(PYTHON)" \
-	PYTHON_LIBS="-l$(PYTHON)"
 
 CONFIGURE_ARGS+= \
 	--enable-shared \

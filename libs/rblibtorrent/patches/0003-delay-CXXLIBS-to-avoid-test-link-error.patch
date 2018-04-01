@@ -1,7 +1,7 @@
-From 87e5d109f0a7eaf22fa9ba115f31871722868092 Mon Sep 17 00:00:00 2001
+From ef2a951c208842ded7407be2190ff0fd451a3b2a Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Fri, 22 Sep 2017 21:00:22 +0800
-Subject: [PATCH 4/4] delay CXXLIBS to avoid test link error
+Subject: [PATCH 3/3] delay CXXLIBS to avoid test link error
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: Xuefer <xuefer@gmail.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index 6681a39..7094a10 100644
+index a64d21b63..cddc30bb9 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -133,7 +133,7 @@ AS_IF([test -z "$BOOST_RANDOM_LIB"],
@@ -21,7 +21,7 @@ index 6681a39..7094a10 100644
  
  ###############################################################################
  # Checking for functions and other stuffs
-@@ -515,6 +515,8 @@ AS_CASE(["$ARG_WITH_LIBICONV"],
+@@ -510,6 +510,8 @@ AS_CASE(["$ARG_WITH_LIBICONV"],
     AC_MSG_ERROR([Unknown option "$ARG_WITH_LIBICONV". Use either "yes" or "no".])]
  )
  
@@ -31,5 +31,5 @@ index 6681a39..7094a10 100644
  # Setting conditional variables for Makefiles
  ###############################################################################
 -- 
-2.10.2
+2.16.1
 
