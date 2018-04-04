@@ -23,7 +23,7 @@ PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Xuefer <xuefer@gmail.com>
 
 include $(INCLUDE_DIR)/package.mk
-$(call include_mk, python-package.mk)
+include ../../../../packages/lang/python/python-package.mk
 
 define Package/python-msgpack-python
 	SECTION:=lang

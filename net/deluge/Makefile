@@ -22,7 +22,7 @@ PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=libtool python python-rjsmin python-rjsmin/host
 
 include $(INCLUDE_DIR)/package.mk
-$(call include_mk, python-package.mk)
+include ../../../packages/lang/python/python-package.mk
 
 define Package/deluge/Default
   SUBMENU:=BitTorrent
