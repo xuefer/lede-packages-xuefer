@@ -1,4 +1,4 @@
-From 6f056016f6f858b897a9de54abdc4a989c7eebda Mon Sep 17 00:00:00 2001
+From 6405d22bc5e87d442c7049916827f4abfb5472fb Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Fri, 22 Sep 2017 16:08:33 +0800
 Subject: [PATCH 2/3] support for using closure-compiler
@@ -36,5 +36,5 @@ index d9a1643a9..e7dc411fe 100755
      from slimit import minify
  else:
 -- 
-2.13.6
+2.16.1
 
