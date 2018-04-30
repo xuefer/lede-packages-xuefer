@@ -39,9 +39,11 @@ define Package/smokeping
 		+perlbase-pod \
 		+perlbase-storable \
 		+perl-cgi \
+		+perl-cgi-fast \
 		+perl-config-grammar \
 		+perl-data-dumper \
 		+perl-digest-hmac \
+		+perl-fcgi \
 		+perl-io-socket-ssl \
 		+perl-libwww \
 		+perl-net-dns \
