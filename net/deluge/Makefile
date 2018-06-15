@@ -13,7 +13,7 @@ PKG_REV:=develop
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/deluge-torrent/deluge.git
+PKG_SOURCE_URL:=https://github.com/deluge-torrent/deluge.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
