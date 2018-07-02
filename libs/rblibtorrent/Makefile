@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/uclibc++.mk
 
 PKG_NAME:=rblibtorrent
-PKG_VERSION:=1.1.6
+PKG_VERSION:=1.1.8
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
