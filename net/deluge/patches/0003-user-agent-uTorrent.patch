@@ -1,7 +1,7 @@
-From c4ebcb29df5a887c35be209ac23fe6f747da31b9 Mon Sep 17 00:00:00 2001
+From e71931675a72c52282f4846f8ff0ad230056433d Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Thu, 5 Apr 2018 09:42:30 +0800
-Subject: [PATCH 3/3] user agent uTorrent
+Subject: [PATCH 3/4] user agent uTorrent
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
@@ -9,10 +9,10 @@ Signed-off-by: Xuefer <xuefer@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/deluge/core/core.py b/deluge/core/core.py
-index 4b80a55d8..b4c08e80f 100644
+index 691a7c0d2..7ad45b078 100644
 --- a/deluge/core/core.py
 +++ b/deluge/core/core.py
-@@ -105,7 +105,7 @@ def __init__(self, listen_interface=None, read_only_config_keys=None):
+@@ -105,7 +105,7 @@ def __init__(self, listen_interface=None, outgoing_interface=None, read_only_con
          component.Component.__init__(self, 'Core')
  
          # Start the libtorrent session.
@@ -22,5 +22,5 @@ index 4b80a55d8..b4c08e80f 100644
          log.debug(
              'Starting session (peer_id: %s, user_agent: %s)',
 -- 
-2.16.1
+2.18.0
 
