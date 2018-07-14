@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
-PKG_VERSION:=2.0.0-20171217
+PKG_VERSION:=2.0.0-20180713
 PKG_REV:=develop
 PKG_RELEASE:=1
 
