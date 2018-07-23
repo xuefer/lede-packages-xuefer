@@ -35,7 +35,7 @@ endef
 define Package/deluge
 $(call Package/deluge/Default)
   TITLE+= (console UI & daemon)
-  DEPENDS+=+python +rblibtorrent +python2-chardet +pyxdg +twisted +pyopenssl +python-setuptools
+  DEPENDS+=+python +rblibtorrent +python2-chardet +pyxdg +twisted +python-pyopenssl +python-setuptools
 endef
 
 define Package/deluge-ui-gtk
