@@ -40,6 +40,7 @@ endef
 define Build/Prepare
 $(call Build/Prepare/Default)
 	rm -f $(PKG_BUILD_DIR)/src/gevent/{_socket,_ssl}3.py
+	chmod 644 $(PKG_BUILD_DIR)/src/gevent/libev/*
 endef
 
 define Build/Compile
