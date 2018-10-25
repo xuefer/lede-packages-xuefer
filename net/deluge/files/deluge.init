@@ -57,7 +57,7 @@ start_instance() {
 	HOME="$home" \
 	SERVICE_UID="$uid" \
 	SERVICE_GID="$gid" \
-	service_start /usr/bin/python2.6 /usr/bin/deluged --do-not-daemonize $options
+	service_start /usr/bin/deluged --do-not-daemonize $options
 }
 
 stop_instance() {
@@ -70,7 +70,7 @@ stop_instance() {
 
 	SERVICE_UID="$uid" \
 	SERVICE_GID="$gid" \
-	service_stop /usr/bin/python2.6
+	service_stop /usr/bin/deluged
 }
 
 start()

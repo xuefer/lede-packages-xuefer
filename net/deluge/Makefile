@@ -87,7 +87,6 @@ define PyPackage/deluge/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/deluge.init $(1)/etc/init.d/deluge
-	$(SED) 's#/usr/bin/python2.6#/usr/bin/$(PYTHON)#' $(1)/etc/init.d/deluge
 endef
 
 define PyPackage/deluge-ui-gtk/filespec
