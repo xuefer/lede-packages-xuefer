@@ -19,6 +19,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 include ../../../../packages/lang/python/python-package.mk
+include ../../../../packages/lang/python/python3-package.mk
 
 PKG_UNPACK:=$(HOST_TAR) -C $(PKG_BUILD_DIR) --strip-components=1 -xzf $(DL_DIR)/$(PKG_SOURCE)
 
@@ -32,14 +33,14 @@ endef
 define Package/python-mako
 $(call Package/python-mako/Default)
   TITLE:=Mako Templates for Python
-  DEPENDS:=+python-light
+  DEPENDS:=+python-light +python-markupsafe
   VARIANT:=python
 endef
 
 define Package/python3-mako
 $(call Package/python-mako/Default)
   TITLE:=Mako Templates for Python
-  DEPENDS:=+python3-light
+  DEPENDS:=+python3-light +python3-markupsafe
   VARIANT:=python3
 endef
 
