@@ -1,7 +1,7 @@
-From e71931675a72c52282f4846f8ff0ad230056433d Mon Sep 17 00:00:00 2001
+From 4f68f4d4a49fa191283c944b40b0fc4686bb1563 Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Thu, 5 Apr 2018 09:42:30 +0800
-Subject: [PATCH 3/4] user agent uTorrent
+Subject: [PATCH 2/3] user agent uTorrent
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
@@ -9,18 +9,18 @@ Signed-off-by: Xuefer <xuefer@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/deluge/core/core.py b/deluge/core/core.py
-index 691a7c0d2..7ad45b078 100644
+index 3c3b6b331..e85063f68 100644
 --- a/deluge/core/core.py
 +++ b/deluge/core/core.py
-@@ -105,7 +105,7 @@ def __init__(self, listen_interface=None, outgoing_interface=None, read_only_con
+@@ -120,7 +120,7 @@ def __init__(
          component.Component.__init__(self, 'Core')
  
          # Start the libtorrent session.
 -        user_agent = 'Deluge/{} libtorrent/{}'.format(DELUGE_VER, LT_VERSION)
 +        user_agent = "uTorrent/3310(30017)"
          peer_id = self._create_peer_id(DELUGE_VER)
-         log.debug(
-             'Starting session (peer_id: %s, user_agent: %s)',
+         log.debug('Starting session (peer_id: %s, user_agent: %s)', peer_id, user_agent)
+         settings_pack = {
 -- 
-2.18.0
+2.19.0
 

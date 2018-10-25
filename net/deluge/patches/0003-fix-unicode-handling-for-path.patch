@@ -1,19 +1,19 @@
-From 51dc8d60936d00a77878a40b33d8873515619da4 Mon Sep 17 00:00:00 2001
+From 4896577378e125e7668c54627006cb0b7214ad2e Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Sat, 14 Jul 2018 16:15:03 +0800
-Subject: [PATCH 4/4] fix unicode handling for path
+Subject: [PATCH 3/3] fix unicode handling for path
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
- deluge/core/torrent.py        | 6 +++---
+ deluge/core/torrent.py        | 2 +-
  deluge/core/torrentmanager.py | 4 ++--
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/deluge/core/torrent.py b/deluge/core/torrent.py
-index e9d3e540c..7f049fcd0 100644
+index 0a7e7eba8..58e6dc8b2 100644
 --- a/deluge/core/torrent.py
 +++ b/deluge/core/torrent.py
-@@ -1164,7 +1164,7 @@ def move_storage(self, dest):
+@@ -1250,7 +1250,7 @@ def move_storage(self, dest):
              # Keyword argument flags=2 (dont_replace) dont overwrite target files but delete source.
              try:
                  self.handle.move_storage(dest.encode('utf8'), flags=2)
@@ -22,38 +22,20 @@ index e9d3e540c..7f049fcd0 100644
                  self.handle.move_storage(dest, flags=2)
          except RuntimeError as ex:
              log.error('Error calling libtorrent move_storage: %s', ex)
-@@ -1292,7 +1292,7 @@ def rename_files(self, filenames):
-             # lt needs utf8 byte-string. Otherwise if wstrings enabled, unicode string.
-             try:
-                 self.handle.rename_file(index, filename.encode('utf8'))
--            except TypeError:
-+            except (TypeError, UnicodeError):
-                 self.handle.rename_file(index, filename)
- 
-     def rename_folder(self, folder, new_folder):
-@@ -1328,7 +1328,7 @@ def on_file_rename_complete(dummy_result, wait_dict, index):
-                 new_path = _file['path'].replace(folder, new_folder, 1)
-                 try:
-                     self.handle.rename_file(_file['index'], new_path.encode('utf8'))
--                except TypeError:
-+                except (TypeError, UnicodeError):
-                     self.handle.rename_file(_file['index'], new_path)
- 
-         def on_folder_rename_complete(dummy_result, torrent, folder, new_folder):
 diff --git a/deluge/core/torrentmanager.py b/deluge/core/torrentmanager.py
-index 62e1d2508..5fafc7107 100644
+index edab21fa1..228b6e0eb 100644
 --- a/deluge/core/torrentmanager.py
 +++ b/deluge/core/torrentmanager.py
-@@ -411,7 +411,7 @@ def _build_torrent_params(
+@@ -465,7 +465,7 @@ def _build_torrent_params(
                      log.debug('renaming file index %s to %s', index, fname)
                  try:
                      torrent_info.rename_file(index, fname.encode('utf8'))
 -                except TypeError:
-+                except UnicodeError:
++                except (TypeError, UnicodeError):
                      torrent_info.rename_file(index, fname)
              add_torrent_params['ti'] = torrent_info
  
-@@ -740,7 +740,7 @@ def load_state(self):
+@@ -846,7 +846,7 @@ def load_state(self):
                  except AttributeError:
                      pass
              # Manually update unmatched attributes
@@ -63,5 +45,5 @@ index 62e1d2508..5fafc7107 100644
              options['prioritize_first_last_pieces'] = t_state.prioritize_first_last
              options['add_paused'] = t_state.paused
 -- 
-2.18.0
+2.19.0
 

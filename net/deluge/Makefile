@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
-PKG_VERSION:=2.0.0-20180728
+PKG_VERSION:=2.0.0-20181022
 # develop
-PKG_REV:=3fc97672de5ef74ec5281aab3d1d0d68b120ee38
+PKG_REV:=e6c61c3f8ccae700da1b88e9f1b4dfde1b53ae7f
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -36,7 +36,7 @@ endef
 define Package/deluge
 $(call Package/deluge/Default)
   TITLE+= (console UI & daemon)
-  DEPENDS+=+python +rblibtorrent +chardet +pyxdg +twisted +python-pyopenssl +python-setuptools
+  DEPENDS+=+python +rblibtorrent +chardet +pyxdg +twisted +python-pyopenssl +python-setproctitle +pillow +python-pyasn1
 endef
 
 define Package/deluge-ui-gtk
