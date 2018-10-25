@@ -36,19 +36,19 @@ endef
 define Package/deluge
 $(call Package/deluge/Default)
   TITLE+= (console UI & daemon)
-  DEPENDS+=+python +rblibtorrent +chardet +pyxdg +twisted +python-pyopenssl +python-setproctitle +pillow +python-pyasn1
+  DEPENDS+=+python +rblibtorrent +chardet +pyxdg +twisted +python-pyopenssl +python-setproctitle +pillow +python-pyasn1 +python-mako
 endef
 
 define Package/deluge-ui-gtk
 $(call Package/deluge/Default)
   TITLE+= (GTK+ UI)
-  DEPENDS+=deluge +python-gtk
+  DEPENDS+=+deluge +python-gtk
 endef
 
 define Package/deluge-ui-web
 $(call Package/deluge/Default)
   TITLE+= (Web UI)
-  DEPENDS+=deluge +mako
+  DEPENDS+=+deluge
 endef
 
 define Package/deluge/description
