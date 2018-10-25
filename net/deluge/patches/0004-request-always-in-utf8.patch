@@ -1,0 +1,26 @@
+From 5656cc386149a0ca53f748d75940c261c1d66fd1 Mon Sep 17 00:00:00 2001
+From: Xuefer <xuefer@gmail.com>
+Date: Fri, 26 Oct 2018 01:33:04 +0800
+Subject: [PATCH 4/4] request always in utf8
+
+Signed-off-by: Xuefer <xuefer@gmail.com>
+---
+ deluge/ui/web/json_api.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/deluge/ui/web/json_api.py b/deluge/ui/web/json_api.py
+index 2ea0e493c..c11f78a00 100644
+--- a/deluge/ui/web/json_api.py
++++ b/deluge/ui/web/json_api.py
+@@ -137,7 +137,7 @@ def _handle_request(self, request):
+         procedure calls and the request id.
+         """
+         try:
+-            request_data = json.loads(request.json.decode())
++            request_data = json.loads(request.json.decode("UTF-8"))
+         except (ValueError, TypeError):
+             raise JSONException('JSON not decodable')
+ 
+-- 
+2.19.0
+

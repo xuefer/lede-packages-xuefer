@@ -1,7 +1,7 @@
 From 4896577378e125e7668c54627006cb0b7214ad2e Mon Sep 17 00:00:00 2001
 From: Xuefer <xuefer@gmail.com>
 Date: Sat, 14 Jul 2018 16:15:03 +0800
-Subject: [PATCH 3/3] fix unicode handling for path
+Subject: [PATCH 3/4] fix unicode handling for path
 
 Signed-off-by: Xuefer <xuefer@gmail.com>
 ---
